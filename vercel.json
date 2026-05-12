@@ -1,5 +1,4 @@
 {
-  // This rewrite forces Vercel to serve index.html for all routes, enabling client-side routing.
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]
