@@ -24,6 +24,9 @@ const CATEGORIES = {
   immune: 'Immune',
   sexual: 'Sexual Health',
   longevity: 'Longevity',
+  mitochondrial: 'Mitochondrial',
+  hormonal: 'Hormonal / Reproductive',
+  experimental: 'Experimental / High‑risk',
   other: 'Other'
 };
 
@@ -47,22 +50,37 @@ const PEPTIDES_DATA = [
     status:
       'Investigational: studied primarily in animal models; not approved for human use. Considered a prohibited substance in many athletic competitions.',
     halfLife:
-      'Short (<30 min) based on limited pharmacokinetic data; however, tissue‑level effects may persist beyond the peptide’s presence:contentReference[oaicite:0]{index=0}.',
+      'Short (<30 min) based on limited pharmacokinetic data; however, tissue‑level effects may persist beyond the peptide’s presencehttps://pmc.ncbi.nlm.nih.gov/articles/PMC12446177/#:~:text=%28TNF,40%2C%2026%20%2C%20%2055.',
     storage:
-      'Lyophilised powder is relatively stable when kept cool and dry; reconstituted solution should be refrigerated and used within several weeks:contentReference[oaicite:1]{index=1}.',
+      'Lyophilised powder is relatively stable when kept cool and dry; reconstituted solution should be refrigerated and used within several weekshttps://adonyxbio.com/understanding-bpc-157-and-why-shelf-life-matters/#:~:text=Shelf%20Life%20of%20Lyophilized%20%28Freeze,157.',
     handling:
       'Avoid repeated freeze–thaw cycles. Use sterile technique when reconstituting.',
     safety:
       'Human data are extremely limited. Effects and safety have not been established. Not approved for medical use.',
     disclaimer:
       'For educational research tracking only. Not approved for human use.',
+    trialDoseSummary: {
+      label: 'Doses used in studies/trials',
+      summary:
+        'Most published data on BPC‑157 involve animal models using doses around 10 mcg/kg–20 mcg/kg. Human clinical dosing has not been established.',
+      context: 'animal study',
+      route: '',
+      frequency: '',
+      duration: '',
+      sourceType: 'review article',
+      caution:
+        'This is historical study information only and is not a recommendation. Do not use this app for medical dosing decisions.'
+    },
+    relatedPeptides: ['tb500'],
+    tags: ['healing', 'angiogenesis'],
+    cautionLevel: 'Medium',
     references: [
       {
         id: 'bpc-review',
         title: 'Regeneration or Risk? A Narrative Review of BPC‑157 for Musculoskeletal Healing',
         url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC12446177/',
         note:
-          'Narrative review describing mechanisms and concerns; notes half‑life <30 min and persistent tissue effects:contentReference[oaicite:2]{index=2}.'
+          'Narrative review describing mechanisms and concerns; notes half‑life <30 min and persistent tissue effectshttps://pmc.ncbi.nlm.nih.gov/articles/PMC12446177/#:~:text=%28TNF,40%2C%2026%20%2C%20%2055.'
       }
     ]
   },
@@ -91,6 +109,21 @@ const PEPTIDES_DATA = [
       'Limited human data. Not approved for medical use; banned in many sports organisations.',
     disclaimer:
       'For educational research tracking only. Not approved for human use.',
+    trialDoseSummary: {
+      label: 'Doses used in studies/trials',
+      summary:
+        'Preclinical studies often used doses of 2–10 mg per week in animal models. No well‑established human dosing data.',
+      context: 'animal study',
+      route: '',
+      frequency: '',
+      duration: '',
+      sourceType: 'preclinical study',
+      caution:
+        'This is historical study information only and is not a recommendation. Do not use this app for medical dosing decisions.'
+    },
+    relatedPeptides: ['bpc157'],
+    tags: ['healing', 'angiogenesis'],
+    cautionLevel: 'Medium',
     references: []
   },
   {
@@ -118,7 +151,183 @@ const PEPTIDES_DATA = [
       'Potential side effects include flushing, injection site reactions and water retention. Not approved for medical use.',
     disclaimer:
       'For educational research tracking only. Not approved for human use.',
+    trialDoseSummary: {
+      label: 'Doses used in studies/trials',
+      summary:
+        'Early human trials of CJC‑1295 with DAC administered 30–60 mcg/kg subcutaneously once or twice weekly; without DAC, 10–50 mcg/kg IV produced transient GH pulses.',
+      context: 'human clinical trial',
+      route: 'subcutaneous / intravenous',
+      frequency: '',
+      duration: '',
+      sourceType: 'clinical trial',
+      caution:
+        'This is historical study information only and is not a recommendation. Do not use this app for medical dosing decisions.'
+    },
+    relatedPeptides: ['sermorelin'],
+    tags: ['GH secretagogue'],
+    cautionLevel: 'Medium',
     references: []
+  },
+  // Added new peptide: Ipamorelin
+  {
+    id: 'ipamorelin',
+    name: 'Ipamorelin',
+    aliases: [],
+    category: 'gh',
+    description:
+      'Ipamorelin is a synthetic pentapeptide growth hormone secretagogue that stimulates GH release via ghrelin receptor agonism.',
+    researchFocus: ['Growth hormone stimulation', 'Metabolic regulation'],
+    mechanism:
+      'Binds to the growth hormone secretagogue receptor (GHS‑R1a), prompting pulsatile release of GH with minimal effect on ACTH or cortisol.',
+    status:
+      'Investigational: studied in phase I pharmacokinetic studies; not approved for human use.',
+    halfLife:
+      'Short (~2 hours) terminal half‑life after IV infusion reported in human PK/PD studieshttps://link.springer.com/article/10.1023/A:1018955126402#:~:text=minutes,and%20growth%20hormone%20were%20measured.',
+    storage:
+      'Store lyophilised powder at 2–8 °C; reconstituted solution should be refrigerated and used within days.',
+    handling:
+      'Protect from light; use sterile technique during reconstitution.',
+    safety:
+      'Limited clinical data; adverse effects may include headache and flushing. Not approved for medical use.',
+    disclaimer:
+      'For educational research tracking only. Not approved for human use.',
+    trialDoseSummary: {
+      label: 'Doses used in studies/trials',
+      summary:
+        'In a phase I study, ipamorelin was administered intravenously at infusion rates of 4.21–140 nmol/kg over 15 min, resulting in transient GH pulses and a terminal half‑life of ~2 hhttps://link.springer.com/article/10.1023/A:1018955126402#:~:text=minutes,and%20growth%20hormone%20were%20measured.',
+      context: 'human clinical trial',
+      route: 'intravenous infusion',
+      frequency: 'single infusion',
+      duration: '15 minutes',
+      sourceType: 'clinical trial',
+      caution:
+        'This is historical study information only and is not a recommendation. Do not use this app for medical dosing decisions.'
+    },
+    relatedPeptides: ['cjc1295', 'sermorelin'],
+    tags: ['GH secretagogue'],
+    cautionLevel: 'Medium',
+    references: []
+  },
+  // Added new peptide: Sermorelin
+  {
+    id: 'sermorelin',
+    name: 'Sermorelin',
+    aliases: ['GHRH (1‑29)'],
+    category: 'gh',
+    description:
+      'Sermorelin is a synthetic analog of growth hormone–releasing hormone (GHRH) consisting of the first 29 amino acids of endogenous GHRH.',
+    researchFocus: ['GH deficiency therapy', 'Anti‑aging research'],
+    mechanism:
+      'Stimulates pituitary GH release by binding to GHRH receptors, increasing GH and subsequently IGF‑1 levels.',
+    status:
+      'Approved historically for diagnostic use and GH deficiency therapy but withdrawn; considered investigational.',
+    halfLife:
+      'Short (~10–20 minutes) due to rapid proteolysis; longer with modified forms.',
+    storage:
+      'Refrigerate lyophilised vials; use reconstituted solution within days.',
+    handling:
+      'Use sterile technique; avoid repetitive freeze‑thaw cycles.',
+    safety:
+      'Side effects may include flushing, headache and nausea. Not approved for new clinical use.',
+    disclaimer:
+      'For educational research tracking only. Not approved for human use.',
+    trialDoseSummary: {
+      label: 'Doses used in studies/trials',
+      summary:
+        'FDA‑approved labeling for growth hormone deficiency historically used 0.5–1 mg/day subcutaneously in children; some adult research used 100–200 mcg IV boluses for diagnostic testing. This is historical label and study information only and is not a recommendation.',
+      context: 'FDA label / clinical trial',
+      route: 'subcutaneous / intravenous',
+      frequency: 'daily or diagnostic single dose',
+      duration: '',
+      sourceType: 'FDA label / clinical trial',
+      caution:
+        'This is historical study/label information only and is not a recommendation. Do not use this app for medical dosing decisions.'
+    },
+    relatedPeptides: ['cjc1295', 'ipamorelin'],
+    tags: ['GH secretagogue'],
+    cautionLevel: 'Medium',
+    references: []
+  },
+  // Added new peptide: Tesamorelin
+  {
+    id: 'tesamorelin',
+    name: 'Tesamorelin',
+    aliases: ['Egrifta'],
+    category: 'gh',
+    description:
+      'Tesamorelin is a stabilized GHRH analog approved for treatment of HIV‑associated lipodystrophy, designed to increase growth hormone secretion and reduce visceral adiposity.',
+    researchFocus: ['HIV‑associated lipodystrophy', 'Visceral fat reduction'],
+    mechanism:
+      'Binds to GHRH receptors with enhanced stability, stimulating endogenous GH release and lipolysis.',
+    status:
+      'FDA‑approved for treatment of HIV‑associated lipodystrophy. Investigational for other metabolic indications.',
+    halfLife:
+      'Approximately 60–90 minutes after subcutaneous injection; extended activity due to stabilized structure.',
+    storage:
+      'Keep lyophilised vials refrigerated; use reconstituted solution promptly.',
+    handling:
+      'Reconstituted solution should be inspected for particulates and discoloration before use.',
+    safety:
+      'Common adverse effects include injection site reactions and peripheral edema. Only indicated for HIV lipodystrophy under medical supervision.',
+    disclaimer:
+      'For educational research tracking only. Not approved for unsupervised human use.',
+    trialDoseSummary: {
+      label: 'Doses used in studies/trials',
+      summary:
+        'The FDA‑approved label for tesamorelin recommends 2 mg subcutaneous injection once daily for HIV‑associated lipodystrophy. Clinical studies evaluating metabolic benefits have used similar dosing. This is historical label information only and is not a recommendation.',
+      context: 'FDA label',
+      route: 'subcutaneous',
+      frequency: 'once daily',
+      duration: '',
+      sourceType: 'FDA label',
+      caution:
+        'This is historical label information only and is not a recommendation. Do not use this app for medical dosing decisions.'
+    },
+    relatedPeptides: ['sermorelin'],
+    tags: ['GH secretagogue', 'metabolic'],
+    cautionLevel: 'Medium',
+    references: []
+  },
+  // Added new peptide: Epitalon
+  {
+    id: 'epitalon',
+    name: 'Epitalon',
+    aliases: ['Epithalon', 'Ala‑Glu‑Asp‑Gly'],
+    category: 'longevity',
+    description:
+      'Epitalon is a synthetic tetrapeptide purported to regulate telomerase activity and influence aging processes. Claims are largely based on animal and Russian research.',
+    researchFocus: ['Telomerase activation', 'Longevity research'],
+    mechanism:
+      'Proposed to increase telomerase activity and antioxidant defenses, but mechanisms remain speculative.',
+    status:
+      'Experimental: not approved for any medical use; evidence is limited.',
+    halfLife:
+      'Not well established; available data suggest rapid clearance.',
+    storage:
+      'Lyophilised vials should be refrigerated; reconstituted solution used quickly.',
+    handling:
+      'Use sterile technique; protect from light.',
+    safety:
+      'Human safety data are scarce; potential risks unknown.',
+    disclaimer:
+      'For educational research tracking only. Not approved for human use.',
+    trialDoseSummary: {
+      label: 'Doses used in studies/trials',
+      summary:
+        'Limited human studies reported 10 mg injection courses over 10–20 days and oral dosing of 1–2 mg daily. Evidence remains anecdotal and is not validated. This is historical study information only and is not a recommendation.',
+      context: 'investigational / anecdotal',
+      route: 'intramuscular / oral',
+      frequency: '',
+      duration: '',
+      sourceType: 'small study / anecdotal',
+      caution:
+        'This is historical study information only and is not a recommendation. Do not use this app for medical dosing decisions.'
+    },
+    relatedPeptides: [],
+    tags: ['longevity'],
+    cautionLevel: 'High',
+    references: []
+  }
   }
 ];
 
@@ -231,103 +440,192 @@ function TopNav({ tab, setTab, favourites }) {
 // Dashboard screen: summarises favourite peptides, recent logs and inventory alerts
 function DashboardScreen({ favourites, peptides, logs, inventory, setTab, setSelectedPeptide }) {
   const favouritePeptides = peptides.filter(p => favourites.includes(p.id));
-  const recentLogs = logs
-    .slice()
-    .sort((a, b) => b.date.localeCompare(a.date))
-    .slice(0, 5);
+  const recentLogs = logs.slice().sort((a, b) => b.date.localeCompare(a.date)).slice(0, 5);
   const lowInventory = inventory.filter(item => {
     // Show items with less than 10% remaining or expiring within 14 days
     const now = new Date();
     const expDate = item.expirationDate ? new Date(item.expirationDate) : null;
     const isExpiring = expDate && (expDate - now) / (1000 * 60 * 60 * 24) <= 14;
-    return (
-      (item.remainingMg !== undefined &&
-        item.remainingMg <= item.vialAmountMg * 0.1) ||
-      isExpiring
-    );
+    return (item.remainingMg !== undefined && item.remainingMg <= item.vialAmountMg * 0.1) || isExpiring;
   });
+
+  // Counts for dashboard stat cards
+  const totalPeptides = peptides.length;
+  const totalFavourites = favourites.length;
+  const totalLogs = logs.length;
+  const totalInventory = inventory.length;
 
   return (
     <div style={{ padding: '16px 16px 24px' }}>
-      <h2 style={{ margin: '0 0 12px', fontSize: 20 }}>Dashboard</h2>
+      {/* Premium header */}
+      <div style={{ marginBottom: 16 }}>
+        <h2 style={{ margin: 0, fontSize: 22 }}>Peptide Research Tracker</h2>
+        <p style={{ margin: '4px 0 0', fontSize: 12, color: '#888' }}>
+          Your personal peptide reference and research hub
+        </p>
+      </div>
+      {/* Stat cards */}
+      <div
+        style={{
+          display: 'flex',
+          gap: 8,
+          flexWrap: 'wrap',
+          marginBottom: 24
+        }}
+      >
+        <div
+          className="card"
+          style={{ flex: '1 1 45%', minWidth: 140, textAlign: 'center' }}
+        >
+          <div style={{ fontSize: 28, fontWeight: 700 }}>{totalPeptides}</div>
+          <div style={{ fontSize: 12, color: '#888' }}>Peptides</div>
+        </div>
+        <div
+          className="card"
+          style={{ flex: '1 1 45%', minWidth: 140, textAlign: 'center' }}
+        >
+          <div style={{ fontSize: 28, fontWeight: 700 }}>{totalFavourites}</div>
+          <div style={{ fontSize: 12, color: '#888' }}>Favourites</div>
+        </div>
+        <div
+          className="card"
+          style={{ flex: '1 1 45%', minWidth: 140, textAlign: 'center' }}
+        >
+          <div style={{ fontSize: 28, fontWeight: 700 }}>{totalLogs}</div>
+          <div style={{ fontSize: 12, color: '#888' }}>Log Entries</div>
+        </div>
+        <div
+          className="card"
+          style={{ flex: '1 1 45%', minWidth: 140, textAlign: 'center' }}
+        >
+          <div style={{ fontSize: 28, fontWeight: 700 }}>{totalInventory}</div>
+          <div style={{ fontSize: 12, color: '#888' }}>Inventory Items</div>
+        </div>
+      </div>
+      {/* Quick actions */}
+      <div
+        style={{
+          display: 'flex',
+          gap: 8,
+          flexWrap: 'wrap',
+          marginBottom: 24
+        }}
+      >
+        <button
+          onClick={() => setTab('calculator')}
+          className="card"
+          style={{
+            flex: '1 1 45%',
+            minWidth: 140,
+            padding: '12px',
+            background: '#3fa9f5',
+            border: 'none',
+            borderRadius: 12,
+            color: '#161616',
+            fontWeight: 600
+          }}
+        >
+          Open Calculator
+        </button>
+        <button
+          onClick={() => setTab('log')}
+          className="card"
+          style={{
+            flex: '1 1 45%',
+            minWidth: 140,
+            padding: '12px',
+            background: '#3fa9f5',
+            border: 'none',
+            borderRadius: 12,
+            color: '#161616',
+            fontWeight: 600
+          }}
+        >
+          Add Log
+        </button>
+        <button
+          onClick={() => setTab('inventory')}
+          className="card"
+          style={{
+            flex: '1 1 45%',
+            minWidth: 140,
+            padding: '12px',
+            background: '#3fa9f5',
+            border: 'none',
+            borderRadius: 12,
+            color: '#161616',
+            fontWeight: 600
+          }}
+        >
+          Add Inventory
+        </button>
+        <button
+          onClick={() => setTab('peptides')}
+          className="card"
+          style={{
+            flex: '1 1 45%',
+            minWidth: 140,
+            padding: '12px',
+            background: '#3fa9f5',
+            border: 'none',
+            borderRadius: 12,
+            color: '#161616',
+            fontWeight: 600
+          }}
+        >
+          Browse Peptides
+        </button>
+      </div>
       {/* Favourite peptides section */}
       <section style={{ marginBottom: 24 }}>
         <h3 style={{ fontSize: 16, margin: '12px 0' }}>Favourite Peptides</h3>
-        {favouritePeptides.length === 0 && (
-          <p style={{ color: '#888' }}>No favourites yet.</p>
-        )}
+        {favouritePeptides.length === 0 && <p style={{ color: '#888' }}>No favourites yet.</p>}
         {favouritePeptides.map(peptide => (
           <div
             key={peptide.id}
             className="card"
-            style={{ cursor: 'pointer' }}
+            style={{ cursor: 'pointer', marginBottom: 8 }}
             onClick={() => {
               setSelectedPeptide(peptide);
               setTab('peptides');
             }}
           >
             <strong>{peptide.name}</strong>
-            <div
-              style={{
-                fontSize: 12,
-                color: '#999',
-                marginTop: 4
-              }}
-            >
-              {CATEGORIES[peptide.category]}
-            </div>
+            <div style={{ fontSize: 12, color: '#999', marginTop: 4 }}>{CATEGORIES[peptide.category]}</div>
           </div>
         ))}
       </section>
-
       {/* Recent logs section */}
       <section style={{ marginBottom: 24 }}>
-        <h3 style={{ fontSize: 16, margin: '12px 0' }}>
-          Recent Research Logs
-        </h3>
-        {recentLogs.length === 0 && (
-          <p style={{ color: '#888' }}>No recent entries.</p>
-        )}
+        <h3 style={{ fontSize: 16, margin: '12px 0' }}>Recent Research Logs</h3>
+        {recentLogs.length === 0 && <p style={{ color: '#888' }}>No recent entries.</p>}
         {recentLogs.map(log => (
-          <div key={log.id} className="card">
-            <div style={{ fontSize: 14, fontWeight: 600 }}>
-              {log.peptideName}
-            </div>
+          <div key={log.id} className="card" style={{ marginBottom: 8 }}>
+            <div style={{ fontSize: 14, fontWeight: 600 }}>{log.peptideName}</div>
             <div style={{ fontSize: 12, color: '#aaa' }}>{log.date}</div>
             {log.amount && (
-              <div style={{ fontSize: 12, color: '#ccc', marginTop: 4 }}>
-                Research amount: {log.amount}
-              </div>
+              <div style={{ fontSize: 12, color: '#ccc', marginTop: 4 }}>Research amount: {log.amount}</div>
             )}
             {log.notes && (
               <div style={{ fontSize: 12, color: '#ccc', marginTop: 4 }}>
-                {log.notes.length > 60
-                  ? log.notes.slice(0, 57) + '…'
-                  : log.notes}
+                {log.notes.length > 60 ? log.notes.slice(0, 57) + '…' : log.notes}
               </div>
             )}
           </div>
         ))}
       </section>
-
       {/* Inventory alerts */}
       <section>
         <h3 style={{ fontSize: 16, margin: '12px 0' }}>Inventory Alerts</h3>
-        {lowInventory.length === 0 && (
-          <p style={{ color: '#888' }}>No alerts.</p>
-        )}
+        {lowInventory.length === 0 && <p style={{ color: '#888' }}>No alerts.</p>}
         {lowInventory.map(item => (
-          <div key={item.id} className="card">
+          <div key={item.id} className="card" style={{ marginBottom: 8 }}>
             <div style={{ fontSize: 14, fontWeight: 600 }}>{item.name}</div>
             {item.remainingMg !== undefined && (
-              <div style={{ fontSize: 12, color: '#ccc', marginTop: 4 }}>
-                Remaining: {item.remainingMg} mg
-              </div>
+              <div style={{ fontSize: 12, color: '#ccc', marginTop: 4 }}>Remaining: {item.remainingMg} mg</div>
             )}
             {item.expirationDate && (
-              <div style={{ fontSize: 12, color: '#ccc', marginTop: 4 }}>
-                Expires: {item.expirationDate}
-              </div>
+              <div style={{ fontSize: 12, color: '#ccc', marginTop: 4 }}>Expires: {item.expirationDate}</div>
             )}
           </div>
         ))}
@@ -337,26 +635,15 @@ function DashboardScreen({ favourites, peptides, logs, inventory, setTab, setSel
 }
 
 // Peptides screen: search and filter peptides, show list and details
-function PeptidesScreen({
-  peptides,
-  favourites,
-  setFavourites,
-  selectedPeptide,
-  setSelectedPeptide,
-  setTab
-}) {
+function PeptidesScreen({ peptides, favourites, setFavourites, selectedPeptide, setSelectedPeptide, setTab }) {
   const [search, setSearch] = useState('');
   const [filterCategory, setFilterCategory] = useState('all');
   const [showDetails, setShowDetails] = useState(false);
 
   const filteredPeptides = peptides.filter(p => {
-    const matchesSearch =
-      p.name.toLowerCase().includes(search.toLowerCase()) ||
-      p.aliases.some(a =>
-        a.toLowerCase().includes(search.toLowerCase())
-      );
-    const matchesCategory =
-      filterCategory === 'all' || p.category === filterCategory;
+    const matchesSearch = p.name.toLowerCase().includes(search.toLowerCase()) ||
+      p.aliases.some(a => a.toLowerCase().includes(search.toLowerCase()));
+    const matchesCategory = filterCategory === 'all' || p.category === filterCategory;
     return matchesSearch && matchesCategory;
   });
 
@@ -370,10 +657,7 @@ function PeptidesScreen({
   };
 
   return (
-    <div
-      className="scroll-container"
-      style={{ padding: '16px 16px 24px' }}
-    >
+    <div className="scroll-container" style={{ padding: '16px 16px 24px' }}>
       <h2 style={{ margin: '0 0 12px', fontSize: 20 }}>Peptides</h2>
       {/* Search and filter controls */}
       <div style={{ display: 'flex', gap: 8, marginBottom: 16 }}>
@@ -383,10 +667,7 @@ function PeptidesScreen({
           value={search}
           onChange={e => setSearch(e.target.value)}
         />
-        <select
-          value={filterCategory}
-          onChange={e => setFilterCategory(e.target.value)}
-        >
+        <select value={filterCategory} onChange={e => setFilterCategory(e.target.value)}>
           <option value="all">All</option>
           {Object.keys(CATEGORIES).map(key => (
             <option key={key} value={key}>
@@ -396,10 +677,53 @@ function PeptidesScreen({
         </select>
       </div>
 
+      {/* Category chips for quick filtering */}
+      <div
+        style={{
+          display: 'flex',
+          overflowX: 'auto',
+          gap: 6,
+          paddingBottom: 8,
+          marginBottom: 16
+        }}
+      >
+        <button
+          onClick={() => setFilterCategory('all')}
+          style={{
+            flex: '0 0 auto',
+            padding: '6px 12px',
+            borderRadius: 999,
+            border: '1px solid #444',
+            background: filterCategory === 'all' ? '#3fa9f5' : '#1a1a1a',
+            color: filterCategory === 'all' ? '#fff' : '#ccc',
+            fontSize: 12,
+            fontWeight: 600
+          }}
+        >
+          All
+        </button>
+        {Object.keys(CATEGORIES).map(key => (
+          <button
+            key={key}
+            onClick={() => setFilterCategory(key)}
+            style={{
+              flex: '0 0 auto',
+              padding: '6px 12px',
+              borderRadius: 999,
+              border: '1px solid #444',
+              background: filterCategory === key ? '#3fa9f5' : '#1a1a1a',
+              color: filterCategory === key ? '#fff' : '#ccc',
+              fontSize: 12,
+              fontWeight: 600
+            }}
+          >
+            {CATEGORIES[key]}
+          </button>
+        ))}
+      </div>
+
       {/* List of peptides */}
-      {filteredPeptides.length === 0 && (
-        <p style={{ color: '#888' }}>No peptides found.</p>
-      )}
+      {filteredPeptides.length === 0 && <p style={{ color: '#888' }}>No peptides found.</p>}
       {filteredPeptides.map(peptide => (
         <div
           key={peptide.id}
@@ -410,24 +734,10 @@ function PeptidesScreen({
             setShowDetails(true);
           }}
         >
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center'
-            }}
-          >
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <div>
               <strong>{peptide.name}</strong>
-              <div
-                style={{
-                  fontSize: 12,
-                  color: '#999',
-                  marginTop: 4
-                }}
-              >
-                {CATEGORIES[peptide.category]}
-              </div>
+              <div style={{ fontSize: 12, color: '#999', marginTop: 4 }}>{CATEGORIES[peptide.category]}</div>
             </div>
             <button
               onClick={e => {
@@ -438,29 +748,61 @@ function PeptidesScreen({
                 border: 'none',
                 background: 'transparent',
                 fontSize: 20,
-                color: favourites.includes(peptide.id)
-                  ? '#f5c518'
-                  : '#555'
+                color: favourites.includes(peptide.id) ? '#f5c518' : '#555'
               }}
-              title={
-                favourites.includes(peptide.id)
-                  ? 'Remove from favourites'
-                  : 'Add to favourites'
-              }
+              title={favourites.includes(peptide.id) ? 'Remove from favourites' : 'Add to favourites'}
             >
               {favourites.includes(peptide.id) ? '★' : '☆'}
             </button>
           </div>
-          <div
-            style={{
-              fontSize: 12,
-              color: '#ccc',
-              marginTop: 6
-            }}
-          >
+          <div style={{ fontSize: 12, color: '#ccc', marginTop: 6 }}>
             {peptide.description.length > 80
               ? peptide.description.slice(0, 77) + '…'
               : peptide.description}
+          </div>
+          {/* Tags and caution level */}
+          <div
+            style={{
+              marginTop: 6,
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: 4,
+              alignItems: 'center'
+            }}
+          >
+            {/* Caution indicator */}
+            {peptide.cautionLevel && (
+              <span
+                style={{
+                  display: 'inline-block',
+                  width: 8,
+                  height: 8,
+                  borderRadius: '50%',
+                  background:
+                    peptide.cautionLevel === 'High'
+                      ? '#d90429'
+                      : peptide.cautionLevel === 'Medium'
+                      ? '#f5c518'
+                      : '#4caf50'
+                }}
+                title={`Caution level: ${peptide.cautionLevel}`}
+              />
+            )}
+            {peptide.tags &&
+              peptide.tags.map((tag, idx) => (
+                <span
+                  key={idx}
+                  style={{
+                    fontSize: 10,
+                    color: '#aaa',
+                    background: '#222',
+                    padding: '2px 6px',
+                    borderRadius: 4
+                  }}
+                >
+                  {tag}
+                </span>
+              ))}
           </div>
         </div>
       ))}
@@ -508,117 +850,133 @@ function PeptidesScreen({
             >
               ×
             </button>
-            <h3 style={{ marginTop: 0 }}>
-              {selectedPeptide.name}
-            </h3>
-            {selectedPeptide.aliases.length > 0 && (
-              <p style={{ fontSize: 12, color: '#888' }}>
-                Also known as:{' '}
-                {selectedPeptide.aliases.join(', ')}
-              </p>
-            )}
-            <p style={{ fontSize: 14, color: '#ccc' }}>
-              {selectedPeptide.description}
-            </p>
-            <h4
-              style={{ margin: '12px 0 4px', fontSize: 14 }}
-            >
-              Common research focus
-            </h4>
-            <ul
-              style={{
-                margin: 0,
-                paddingLeft: 20
-              }}
-            >
-              {selectedPeptide.researchFocus.map(
-                (item, i) => (
-                  <li
-                    key={i}
+            {/* Name with caution indicator */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <h3 style={{ marginTop: 0 }}>{selectedPeptide.name}</h3>
+              {selectedPeptide.cautionLevel && (
+                <span
+                  style={{
+                    width: 10,
+                    height: 10,
+                    borderRadius: '50%',
+                    background:
+                      selectedPeptide.cautionLevel === 'High'
+                        ? '#d90429'
+                        : selectedPeptide.cautionLevel === 'Medium'
+                        ? '#f5c518'
+                        : '#4caf50'
+                  }}
+                  title={`Caution level: ${selectedPeptide.cautionLevel}`}
+                ></span>
+              )}
+            </div>
+            {/* Tags */}
+            {selectedPeptide.tags && selectedPeptide.tags.length > 0 && (
+              <div style={{ marginTop: 4, display: 'flex', gap: 4, flexWrap: 'wrap' }}>
+                {selectedPeptide.tags.map((tag, idx) => (
+                  <span
+                    key={idx}
                     style={{
-                      fontSize: 13,
-                      color: '#ccc'
+                      fontSize: 10,
+                      color: '#aaa',
+                      background: '#222',
+                      padding: '2px 6px',
+                      borderRadius: 4
                     }}
                   >
-                    {item}
-                  </li>
-                )
-              )}
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
+            {selectedPeptide.aliases.length > 0 && (
+              <p style={{ fontSize: 12, color: '#888', marginTop: 4 }}>
+                Also known as: {selectedPeptide.aliases.join(', ')}
+              </p>
+            )}
+            <p style={{ fontSize: 14, color: '#ccc' }}>{selectedPeptide.description}</p>
+            <h4 style={{ margin: '12px 0 4px', fontSize: 14 }}>Common research focus</h4>
+            <ul style={{ margin: 0, paddingLeft: 20 }}>
+              {selectedPeptide.researchFocus.map((item, i) => (
+                <li key={i} style={{ fontSize: 13, color: '#ccc' }}>
+                  {item}
+                </li>
+              ))}
             </ul>
-            <h4
-              style={{ margin: '12px 0 4px', fontSize: 14 }}
-            >
-              Mechanism / Pathway
-            </h4>
-            <p style={{ fontSize: 13, color: '#ccc' }}>
-              {selectedPeptide.mechanism}
-            </p>
-            <h4
-              style={{ margin: '12px 0 4px', fontSize: 14 }}
-            >
-              Research status
-            </h4>
-            <p style={{ fontSize: 13, color: '#ccc' }}>
-              {selectedPeptide.status}
-            </p>
+            <h4 style={{ margin: '12px 0 4px', fontSize: 14 }}>Mechanism / Pathway</h4>
+            <p style={{ fontSize: 13, color: '#ccc' }}>{selectedPeptide.mechanism}</p>
+            <h4 style={{ margin: '12px 0 4px', fontSize: 14 }}>Research status</h4>
+            <p style={{ fontSize: 13, color: '#ccc' }}>{selectedPeptide.status}</p>
             {selectedPeptide.halfLife && (
               <>
-                <h4
-                  style={{
-                    margin: '12px 0 4px',
-                    fontSize: 14
-                  }}
-                >
-                  Half‑life
-                </h4>
-                <p style={{ fontSize: 13, color: '#ccc' }}>
-                  {selectedPeptide.halfLife}
-                </p>
+                <h4 style={{ margin: '12px 0 4px', fontSize: 14 }}>Half‑life</h4>
+                <p style={{ fontSize: 13, color: '#ccc' }}>{selectedPeptide.halfLife}</p>
               </>
             )}
             {selectedPeptide.storage && (
               <>
-                <h4
-                  style={{
-                    margin: '12px 0 4px',
-                    fontSize: 14
-                  }}
-                >
-                  Storage notes
-                </h4>
-                <p style={{ fontSize: 13, color: '#ccc' }}>
-                  {selectedPeptide.storage}
-                </p>
+                <h4 style={{ margin: '12px 0 4px', fontSize: 14 }}>Storage notes</h4>
+                <p style={{ fontSize: 13, color: '#ccc' }}>{selectedPeptide.storage}</p>
               </>
             )}
             {selectedPeptide.handling && (
               <>
-                <h4
-                  style={{
-                    margin: '12px 0 4px',
-                    fontSize: 14
-                  }}
-                >
-                  Handling notes
-                </h4>
-                <p style={{ fontSize: 13, color: '#ccc' }}>
-                  {selectedPeptide.handling}
-                </p>
+                <h4 style={{ margin: '12px 0 4px', fontSize: 14 }}>Handling notes</h4>
+                <p style={{ fontSize: 13, color: '#ccc' }}>{selectedPeptide.handling}</p>
               </>
             )}
             {selectedPeptide.safety && (
               <>
+                <h4 style={{ margin: '12px 0 4px', fontSize: 14 }}>Safety notes</h4>
+                <p style={{ fontSize: 13, color: '#ccc' }}>{selectedPeptide.safety}</p>
+              </>
+            )}
+            {/* Trial dose summary section */}
+            {selectedPeptide.trialDoseSummary && (
+              <>
                 <h4
                   style={{
                     margin: '12px 0 4px',
-                    fontSize: 14
+                    fontSize: 14,
+                    color: '#f5c518'
                   }}
                 >
-                  Safety notes
+                  {selectedPeptide.trialDoseSummary.label || 'Doses Used in Studies / Labels'}
                 </h4>
-                <p style={{ fontSize: 13, color: '#ccc' }}>
-                  {selectedPeptide.safety}
+                <p style={{ fontSize: 12, color: '#f5c518' }}>
+                  {selectedPeptide.trialDoseSummary.summary}
                 </p>
+                {selectedPeptide.trialDoseSummary.context && (
+                  <p style={{ fontSize: 11, color: '#aaa' }}>
+                    Context: {selectedPeptide.trialDoseSummary.context}
+                    {selectedPeptide.trialDoseSummary.route &&
+                      ` | Route: ${selectedPeptide.trialDoseSummary.route}`}
+                    {selectedPeptide.trialDoseSummary.frequency &&
+                      ` | Frequency: ${selectedPeptide.trialDoseSummary.frequency}`}
+                    {selectedPeptide.trialDoseSummary.duration &&
+                      ` | Duration: ${selectedPeptide.trialDoseSummary.duration}`}
+                  </p>
+                )}
+                <p style={{ fontSize: 11, color: '#f5c518' }}>
+                  {selectedPeptide.trialDoseSummary.caution}
+                </p>
+              </>
+            )}
+            {/* Related peptides section */}
+            {selectedPeptide.relatedPeptides && selectedPeptide.relatedPeptides.length > 0 && (
+              <>
+                <h4 style={{ margin: '12px 0 4px', fontSize: 14 }}>Related peptides</h4>
+                <ul style={{ margin: 0, paddingLeft: 20 }}>
+                  {selectedPeptide.relatedPeptides.map((relId, idx) => {
+                    const rel = peptides.find(p => p.id === relId);
+                    const name = rel ? rel.name : relId;
+                    return (
+                      <li key={idx} style={{ fontSize: 13, color: '#ccc' }}>
+                        {name}
+                      </li>
+                    );
+                  })}
+                </ul>
               </>
             )}
             {/* Disclaimer */}
@@ -634,33 +992,20 @@ function PeptidesScreen({
               {selectedPeptide.disclaimer}
             </p>
             {/* Actions */}
-            <div
-              style={{
-                marginTop: 16,
-                display: 'flex',
-                gap: 8,
-                flexWrap: 'wrap'
-              }}
-            >
+            <div style={{ marginTop: 16, display: 'flex', gap: 8, flexWrap: 'wrap' }}>
               <button
                 onClick={() => toggleFavourite(selectedPeptide.id)}
                 style={{
                   flex: 1,
                   padding: '8px 12px',
-                  background: favourites.includes(
-                    selectedPeptide.id
-                  )
-                    ? '#f5c518'
-                    : '#3fa9f5',
+                  background: favourites.includes(selectedPeptide.id) ? '#f5c518' : '#3fa9f5',
                   color: '#161616',
                   border: 'none',
                   borderRadius: 6,
                   fontWeight: 600
                 }}
               >
-                {favourites.includes(selectedPeptide.id)
-                  ? 'Remove Favourite'
-                  : 'Add to Favourites'}
+                {favourites.includes(selectedPeptide.id) ? 'Remove Favourite' : 'Add to Favourites'}
               </button>
               <button
                 onClick={() => {
@@ -718,152 +1063,85 @@ function CalculatorScreen() {
     return isNaN(n) ? 0 : n;
   };
 
-  const mgPerMl =
-    parseNumber(vialAmountMg) && parseNumber(waterMl)
-      ? parseNumber(vialAmountMg) / parseNumber(waterMl)
-      : 0;
+  const mgPerMl = parseNumber(vialAmountMg) && parseNumber(waterMl)
+    ? parseNumber(vialAmountMg) / parseNumber(waterMl)
+    : 0;
   const mcgPerMl = mgPerMl * 1000;
-  const desiredMg =
-    parseNumber(desiredAmount) *
-    (desiredUnit === 'mcg' ? 0.001 : 1);
-  const volumeNeededMl =
-    mgPerMl > 0 ? desiredMg / mgPerMl : 0;
+  const desiredMg = parseNumber(desiredAmount) * (desiredUnit === 'mcg' ? 0.001 : 1);
+  const volumeNeededMl = mgPerMl > 0 ? desiredMg / mgPerMl : 0;
   const unitsPerMl = parseNumber(syringeUnitsPerMl) || 100;
   const unitsNeeded = volumeNeededMl * unitsPerMl;
-  const mcgPerUnit =
-    unitsPerMl > 0 ? mcgPerMl / unitsPerMl : 0;
+  const mcgPerUnit = unitsPerMl > 0 ? mcgPerMl / unitsPerMl : 0;
   const mcgPerSmallVol = mcgPerMl * 0.01;
 
   return (
-    <div
-      className="scroll-container"
-      style={{ padding: '16px 16px 24px' }}
-    >
-      <h2 style={{ margin: '0 0 12px', fontSize: 20 }}>
-        Reconstitution Calculator
-      </h2>
-      <p
-        style={{
-          fontSize: 12,
-          color: '#ccc',
-          marginBottom: 16
-        }}
-      >
-        Enter the peptide amount (mg) and diluent volume (mL)
-        to calculate concentration. This calculator performs
-        simple conversions only and does not constitute dosing
-        advice.
+    <div className="scroll-container" style={{ padding: '16px 16px 24px' }}>
+      <h2 style={{ margin: '0 0 12px', fontSize: 20 }}>Reconstitution Calculator</h2>
+      <p style={{ fontSize: 12, color: '#ccc', marginBottom: 16 }}>
+        Enter the peptide amount (mg) and diluent volume (mL) to calculate concentration. This calculator
+        performs simple conversions only and does not constitute dosing advice.
       </p>
       <div className="card">
         <div style={{ marginBottom: 12 }}>
-          <label style={{ fontSize: 13 }}>
-            Peptide amount in vial (mg)
-          </label>
+          <label style={{ fontSize: 13 }}>Peptide amount in vial (mg)</label>
           <input
             type="number"
             min="0"
             step="0.01"
             value={vialAmountMg}
-            onChange={e =>
-              setVialAmountMg(e.target.value)
-            }
+            onChange={e => setVialAmountMg(e.target.value)}
           />
         </div>
         <div style={{ marginBottom: 12 }}>
-          <label style={{ fontSize: 13 }}>
-            Bacteriostatic water added (mL)
-          </label>
+          <label style={{ fontSize: 13 }}>Bacteriostatic water added (mL)</label>
           <input
             type="number"
             min="0"
             step="0.01"
             value={waterMl}
-            onChange={e =>
-              setWaterMl(e.target.value)
-            }
+            onChange={e => setWaterMl(e.target.value)}
           />
         </div>
         <div style={{ marginBottom: 12 }}>
-          <label style={{ fontSize: 13 }}>
-            Desired research amount
-          </label>
+          <label style={{ fontSize: 13 }}>Desired research amount</label>
           <div style={{ display: 'flex', gap: 8 }}>
             <input
               type="number"
               min="0"
               step="0.01"
               value={desiredAmount}
-              onChange={e =>
-                setDesiredAmount(e.target.value)
-              }
+              onChange={e => setDesiredAmount(e.target.value)}
             />
-            <select
-              value={desiredUnit}
-              onChange={e =>
-                setDesiredUnit(e.target.value)
-              }
-            >
+            <select value={desiredUnit} onChange={e => setDesiredUnit(e.target.value)}>
               <option value="mcg">mcg</option>
               <option value="mg">mg</option>
             </select>
           </div>
         </div>
         <div style={{ marginBottom: 12 }}>
-          <label style={{ fontSize: 13 }}>
-            Syringe scale (units per mL)
-          </label>
+          <label style={{ fontSize: 13 }}>Syringe scale (units per mL)</label>
           <input
             type="number"
             min="1"
             step="1"
             value={syringeUnitsPerMl}
-            onChange={e =>
-              setSyringeUnitsPerMl(e.target.value)
-            }
+            onChange={e => setSyringeUnitsPerMl(e.target.value)}
           />
         </div>
       </div>
       {/* Output section */}
       <div className="card" style={{ marginTop: 16 }}>
         <h4 style={{ margin: 0, fontSize: 16 }}>Results</h4>
-        <ul
-          style={{
-            fontSize: 13,
-            lineHeight: 1.6,
-            listStyle: 'none',
-            padding: 0,
-            marginTop: 8
-          }}
-        >
-          <li>
-            Concentration: {mgPerMl.toFixed(3)} mg/mL (
-            {mcgPerMl.toFixed(1)} mcg/mL)
-          </li>
-          <li>
-            mcg per 0.01 mL: {mcgPerSmallVol.toFixed(1)} mcg
-          </li>
-          <li>
-            mcg per unit (U‑100):{' '}
-            {mcgPerUnit.toFixed(1)} mcg
-          </li>
-          <li>
-            Volume needed for desired amount:{' '}
-            {volumeNeededMl.toFixed(3)} mL
-          </li>
-          <li>
-            Units needed: {unitsNeeded.toFixed(1)} units
-          </li>
+        <ul style={{ fontSize: 13, lineHeight: 1.6, listStyle: 'none', padding: 0, marginTop: 8 }}>
+          <li>Concentration: {mgPerMl.toFixed(3)} mg/mL ({mcgPerMl.toFixed(1)} mcg/mL)</li>
+          <li>mcg per 0.01 mL: {mcgPerSmallVol.toFixed(1)} mcg</li>
+          <li>mcg per unit (U‑100): {mcgPerUnit.toFixed(1)} mcg</li>
+          <li>Volume needed for desired amount: {volumeNeededMl.toFixed(3)} mL</li>
+          <li>Units needed: {unitsNeeded.toFixed(1)} units</li>
         </ul>
       </div>
-      <p
-        style={{
-          fontSize: 12,
-          color: '#f5c518',
-          marginTop: 12
-        }}
-      >
-        Disclaimer: This calculator only performs
-        concentration and volume calculations. It does not
+      <p style={{ fontSize: 12, color: '#f5c518', marginTop: 12 }}>
+        Disclaimer: This calculator only performs concentration and volume calculations. It does not
         recommend dosing, frequency or medical treatment.
       </p>
     </div>
@@ -888,219 +1166,103 @@ function LogScreen({ logs, setLogs }) {
     }
     const newEntry = {
       id: Date.now().toString(),
-      date:
-        formData.date ||
-        new Date().toISOString().split('T')[0],
+      date: formData.date || new Date().toISOString().split('T')[0],
       peptideName: formData.peptideName,
       amount: formData.amount,
       notes: formData.notes
     };
     setLogs(prev => [...prev, newEntry]);
-    setFormData({
-      date: '',
-      peptideName: '',
-      amount: '',
-      notes: ''
-    });
+    setFormData({ date: '', peptideName: '', amount: '', notes: '' });
     setShowForm(false);
   };
 
   const deleteLog = id => {
     if (!confirm('Delete this log entry?')) return;
-    setLogs(prev =>
-      prev.filter(entry => entry.id !== id)
-    );
+    setLogs(prev => prev.filter(entry => entry.id !== id));
   };
 
   return (
-    <div
-      className="scroll-container"
-      style={{ padding: '16px 16px 24px' }}
-    >
-      <h2 style={{ margin: '0 0 12px', fontSize: 20 }}>
-        Research Log
-      </h2>
+    <div className="scroll-container" style={{ padding: '16px 16px 24px' }}>
+      <h2 style={{ margin: '0 0 12px', fontSize: 20 }}>Research Log</h2>
       <button
         onClick={() => setShowForm(true)}
-        style={{
-          marginBottom: 12,
-          padding: '8px 12px',
-          background: '#3fa9f5',
-          color: '#161616',
-          border: 'none',
-          borderRadius: 6
-        }}
+        style={{ marginBottom: 12, padding: '8px 12px', background: '#3fa9f5', color: '#161616', border: 'none', borderRadius: 6 }}
       >
         Add Log Entry
       </button>
       {showForm && (
-        <div
-          className="card"
-          style={{ marginBottom: 16 }}
-        >
+        <div className="card" style={{ marginBottom: 16 }}>
           <div style={{ marginBottom: 8 }}>
             <label style={{ fontSize: 13 }}>Date</label>
             <input
               type="date"
               value={formData.date}
-              onChange={e =>
-                setFormData({
-                  ...formData,
-                  date: e.target.value
-                })
-              }
+              onChange={e => setFormData({ ...formData, date: e.target.value })}
             />
           </div>
           <div style={{ marginBottom: 8 }}>
-            <label style={{ fontSize: 13 }}>
-              Peptide name
-            </label>
+            <label style={{ fontSize: 13 }}>Peptide name</label>
             <input
               type="text"
               value={formData.peptideName}
-              onChange={e =>
-                setFormData({
-                  ...formData,
-                  peptideName: e.target.value
-                })
-              }
+              onChange={e => setFormData({ ...formData, peptideName: e.target.value })}
             />
           </div>
           <div style={{ marginBottom: 8 }}>
-            <label style={{ fontSize: 13 }}>
-              Research amount (optional)
-            </label>
+            <label style={{ fontSize: 13 }}>Research amount (optional)</label>
             <input
               type="text"
               value={formData.amount}
-              onChange={e =>
-                setFormData({
-                  ...formData,
-                  amount: e.target.value
-                })
-              }
+              onChange={e => setFormData({ ...formData, amount: e.target.value })}
               placeholder="e.g. 500 mcg"
             />
           </div>
           <div style={{ marginBottom: 8 }}>
-            <label style={{ fontSize: 13 }}>
-              Notes (optional)
-            </label>
+            <label style={{ fontSize: 13 }}>Notes (optional)</label>
             <textarea
               value={formData.notes}
-              onChange={e =>
-                setFormData({
-                  ...formData,
-                  notes: e.target.value
-                })
-              }
+              onChange={e => setFormData({ ...formData, notes: e.target.value })}
               rows={3}
             />
           </div>
-          <div
-            style={{
-              display: 'flex',
-              gap: 8
-            }}
-          >
+          <div style={{ display: 'flex', gap: 8 }}>
             <button
               onClick={saveLog}
-              style={{
-                flex: 1,
-                padding: '8px 12px',
-                background: '#3fa9f5',
-                border: 'none',
-                borderRadius: 6,
-                color: '#161616',
-                fontWeight: 600
-              }}
+              style={{ flex: 1, padding: '8px 12px', background: '#3fa9f5', border: 'none', borderRadius: 6, color: '#161616', fontWeight: 600 }}
             >
               Save
             </button>
             <button
               onClick={() => setShowForm(false)}
-              style={{
-                flex: 1,
-                padding: '8px 12px',
-                background: '#444',
-                border: 'none',
-                borderRadius: 6,
-                color: '#fff',
-                fontWeight: 600
-              }}
+              style={{ flex: 1, padding: '8px 12px', background: '#444', border: 'none', borderRadius: 6, color: '#fff', fontWeight: 600 }}
             >
               Cancel
             </button>
           </div>
         </div>
       )}
-      {logs.length === 0 && (
-        <p style={{ color: '#888' }}>
-          No log entries yet.
-        </p>
-      )}
+      {logs.length === 0 && <p style={{ color: '#888' }}>No log entries yet.</p>}
       {logs
         .slice()
-        .sort((a, b) =>
-          b.date.localeCompare(a.date)
-        )
+        .sort((a, b) => b.date.localeCompare(a.date))
         .map(entry => (
           <div key={entry.id} className="card">
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between'
-              }}
-            >
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
               <div>
-                <div
-                  style={{
-                    fontWeight: 600,
-                    fontSize: 14
-                  }}
-                >
-                  {entry.peptideName}
-                </div>
-                <div
-                  style={{
-                    fontSize: 12,
-                    color: '#aaa'
-                  }}
-                >
-                  {entry.date}
-                </div>
+                <div style={{ fontWeight: 600, fontSize: 14 }}>{entry.peptideName}</div>
+                <div style={{ fontSize: 12, color: '#aaa' }}>{entry.date}</div>
                 {entry.amount && (
-                  <div
-                    style={{
-                      fontSize: 12,
-                      color: '#ccc'
-                    }}
-                  >
-                    Amount: {entry.amount}
-                  </div>
+                  <div style={{ fontSize: 12, color: '#ccc' }}>Amount: {entry.amount}</div>
                 )}
                 {entry.notes && (
-                  <div
-                    style={{
-                      fontSize: 12,
-                      color: '#ccc',
-                      marginTop: 4
-                    }}
-                  >
-                    {entry.notes.length > 80
-                      ? entry.notes.slice(0, 77) + '…'
-                      : entry.notes}
+                  <div style={{ fontSize: 12, color: '#ccc', marginTop: 4 }}>
+                    {entry.notes.length > 80 ? entry.notes.slice(0, 77) + '…' : entry.notes}
                   </div>
                 )}
               </div>
               <button
                 onClick={() => deleteLog(entry.id)}
-                style={{
-                  background: 'transparent',
-                  border: 'none',
-                  color: '#d90429',
-                  fontSize: 18
-                }}
+                style={{ background: 'transparent', border: 'none', color: '#d90429', fontSize: 18 }}
                 title="Delete entry"
               >
                 🗑️
@@ -1113,10 +1275,7 @@ function LogScreen({ logs, setLogs }) {
 }
 
 // Inventory screen: list and add inventory items
-function InventoryScreen({
-  inventory,
-  setInventory
-}) {
+function InventoryScreen({ inventory, setInventory }) {
   const [showForm, setShowForm] = useState(false);
   const [itemData, setItemData] = useState({
     name: '',
@@ -1158,276 +1317,134 @@ function InventoryScreen({
 
   const deleteItem = id => {
     if (!confirm('Delete this inventory item?')) return;
-    setInventory(prev =>
-      prev.filter(item => item.id !== id)
-    );
+    setInventory(prev => prev.filter(item => item.id !== id));
   };
 
   return (
-    <div
-      className="scroll-container"
-      style={{ padding: '16px 16px 24px' }}
-    >
-      <h2
-        style={{
-          margin: '0 0 12px',
-          fontSize: 20
-        }}
-      >
-        Inventory
-      </h2>
+    <div className="scroll-container" style={{ padding: '16px 16px 24px' }}>
+      <h2 style={{ margin: '0 0 12px', fontSize: 20 }}>Inventory</h2>
       <button
         onClick={() => setShowForm(true)}
-        style={{
-          marginBottom: 12,
-          padding: '8px 12px',
-          background: '#3fa9f5',
-          color: '#161616',
-          border: 'none',
-          borderRadius: 6
-        }}
+        style={{ marginBottom: 12, padding: '8px 12px', background: '#3fa9f5', color: '#161616', border: 'none', borderRadius: 6 }}
       >
         Add Inventory Item
       </button>
       {showForm && (
-        <div
-          className="card"
-          style={{ marginBottom: 16 }}
-        >
+        <div className="card" style={{ marginBottom: 16 }}>
           <div style={{ marginBottom: 8 }}>
-            <label style={{ fontSize: 13 }}>
-              Peptide name
-            </label>
+            <label style={{ fontSize: 13 }}>Peptide name</label>
             <input
               type="text"
               value={itemData.name}
-              onChange={e =>
-                setItemData({
-                  ...itemData,
-                  name: e.target.value
-                })
-              }
+              onChange={e => setItemData({ ...itemData, name: e.target.value })}
             />
           </div>
           <div style={{ display: 'flex', gap: 8 }}>
             <div style={{ flex: 1 }}>
-              <label style={{ fontSize: 13 }}>
-                Vial amount (mg)
-              </label>
+              <label style={{ fontSize: 13 }}>Vial amount (mg)</label>
               <input
                 type="number"
                 value={itemData.vialAmountMg}
-                onChange={e =>
-                  setItemData({
-                    ...itemData,
-                    vialAmountMg: e.target.value
-                  })
-                }
+                onChange={e => setItemData({ ...itemData, vialAmountMg: e.target.value })}
               />
             </div>
             <div style={{ flex: 1 }}>
-              <label style={{ fontSize: 13 }}>
-                Diluent added (mL)
-              </label>
+              <label style={{ fontSize: 13 }}>Diluent added (mL)</label>
               <input
                 type="number"
                 value={itemData.bacWaterMl}
-                onChange={e =>
-                  setItemData({
-                    ...itemData,
-                    bacWaterMl: e.target.value
-                  })
-                }
+                onChange={e => setItemData({ ...itemData, bacWaterMl: e.target.value })}
               />
             </div>
           </div>
           <div style={{ display: 'flex', gap: 8 }}>
             <div style={{ flex: 1 }}>
-              <label style={{ fontSize: 13 }}>
-                Date received
-              </label>
+              <label style={{ fontSize: 13 }}>Date received</label>
               <input
                 type="date"
                 value={itemData.dateReceived}
-                onChange={e =>
-                  setItemData({
-                    ...itemData,
-                    dateReceived: e.target.value
-                  })
-                }
+                onChange={e => setItemData({ ...itemData, dateReceived: e.target.value })}
               />
             </div>
             <div style={{ flex: 1 }}>
-              <label style={{ fontSize: 13 }}>
-                Expiration date
-              </label>
+              <label style={{ fontSize: 13 }}>Expiration date</label>
               <input
                 type="date"
                 value={itemData.expirationDate}
-                onChange={e =>
-                  setItemData({
-                    ...itemData,
-                    expirationDate:
-                      e.target.value
-                  })
-                }
+                onChange={e => setItemData({ ...itemData, expirationDate: e.target.value })}
               />
             </div>
           </div>
           <div style={{ marginBottom: 8 }}>
-            <label style={{ fontSize: 13 }}>
-              Remaining amount (mg)
-            </label>
+            <label style={{ fontSize: 13 }}>Remaining amount (mg)</label>
             <input
               type="number"
               value={itemData.remainingMg}
-              onChange={e =>
-                setItemData({
-                  ...itemData,
-                  remainingMg: e.target.value
-                })
-              }
+              onChange={e => setItemData({ ...itemData, remainingMg: e.target.value })}
             />
           </div>
           <div style={{ marginBottom: 8 }}>
-            <label style={{ fontSize: 13 }}>
-              Storage location (optional)
-            </label>
+            <label style={{ fontSize: 13 }}>Storage location (optional)</label>
             <input
               type="text"
               value={itemData.storageLocation}
-              onChange={e =>
-                setItemData({
-                  ...itemData,
-                  storageLocation:
-                    e.target.value
-                })
-              }
+              onChange={e => setItemData({ ...itemData, storageLocation: e.target.value })}
             />
           </div>
           <div style={{ marginBottom: 8 }}>
-            <label style={{ fontSize: 13 }}>
-              Notes (optional)
-            </label>
+            <label style={{ fontSize: 13 }}>Notes (optional)</label>
             <textarea
               value={itemData.notes}
-              onChange={e =>
-                setItemData({
-                  ...itemData,
-                  notes: e.target.value
-                })
-              }
+              onChange={e => setItemData({ ...itemData, notes: e.target.value })}
               rows={3}
             />
           </div>
-          <div
-            style={{
-              display: 'flex',
-              gap: 8
-            }}
-          >
+          <div style={{ display: 'flex', gap: 8 }}>
             <button
               onClick={saveItem}
-              style={{
-                flex: 1,
-                padding: '8px 12px',
-                background: '#3fa9f5',
-                border: 'none',
-                borderRadius: 6,
-                color: '#161616',
-                fontWeight: 600
-              }}
+              style={{ flex: 1, padding: '8px 12px', background: '#3fa9f5', border: 'none', borderRadius: 6, color: '#161616', fontWeight: 600 }}
             >
               Save
             </button>
             <button
               onClick={() => setShowForm(false)}
-              style={{
-                flex: 1,
-                padding: '8px 12px',
-                background: '#444',
-                border: 'none',
-                borderRadius: 6,
-                color: '#fff',
-                fontWeight: 600
-              }}
+              style={{ flex: 1, padding: '8px 12px', background: '#444', border: 'none', borderRadius: 6, color: '#fff', fontWeight: 600 }}
             >
               Cancel
             </button>
           </div>
         </div>
       )}
-      {inventory.length === 0 && (
-        <p style={{ color: '#888' }}>
-          No inventory items yet.
-        </p>
-      )}
+      {inventory.length === 0 && <p style={{ color: '#888' }}>No inventory items yet.</p>}
       {inventory.map(item => (
         <div key={item.id} className="card">
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between'
-            }}
-          >
+          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
             <div>
-              <div
-                style={{
-                  fontWeight: 600,
-                  fontSize: 14
-                }}
-              >
-                {item.name}
-              </div>
+              <div style={{ fontWeight: 600, fontSize: 14 }}>{item.name}</div>
               {item.vialAmountMg && (
-                <div
-                  style={{
-                    fontSize: 12,
-                    color: '#ccc'
-                  }}
-                >
+                <div style={{ fontSize: 12, color: '#ccc' }}>
                   Vial: {item.vialAmountMg} mg
                 </div>
               )}
               {item.bacWaterMl && (
-                <div
-                  style={{
-                    fontSize: 12,
-                    color: '#ccc'
-                  }}
-                >
+                <div style={{ fontSize: 12, color: '#ccc' }}>
                   Diluent: {item.bacWaterMl} mL
                 </div>
               )}
               {item.remainingMg && (
-                <div
-                  style={{
-                    fontSize: 12,
-                    color: '#ccc'
-                  }}
-                >
+                <div style={{ fontSize: 12, color: '#ccc' }}>
                   Remaining: {item.remainingMg} mg
                 </div>
               )}
               {item.expirationDate && (
-                <div
-                  style={{
-                    fontSize: 12,
-                    color: '#ccc'
-                  }}
-                >
+                <div style={{ fontSize: 12, color: '#ccc' }}>
                   Expires: {item.expirationDate}
                 </div>
               )}
             </div>
             <button
               onClick={() => deleteItem(item.id)}
-              style={{
-                background: 'transparent',
-                border: 'none',
-                color: '#d90429',
-                fontSize: 18
-              }}
+              style={{ background: 'transparent', border: 'none', color: '#d90429', fontSize: 18 }}
               title="Delete item"
             >
               🗑️
@@ -1440,24 +1457,13 @@ function InventoryScreen({
 }
 
 // Settings screen: export/import data and show disclaimer
-function SettingsScreen({
-  logs,
-  inventory,
-  favourites,
-  setLogs,
-  setInventory,
-  setFavourites
-}) {
+function SettingsScreen({ logs, inventory, favourites, setLogs, setInventory, setFavourites }) {
   const [exportData, setExportData] = useState('');
   const [importText, setImportText] = useState('');
   const [importError, setImportError] = useState(null);
 
   const handleExport = () => {
-    const data = JSON.stringify({
-      logs,
-      inventory,
-      favourites
-    });
+    const data = JSON.stringify({ logs, inventory, favourites });
     setExportData(data);
   };
   const handleImport = () => {
@@ -1475,97 +1481,44 @@ function SettingsScreen({
   };
 
   return (
-    <div
-      className="scroll-container"
-      style={{ padding: '16px 16px 24px' }}
-    >
-      <h2 style={{ margin: '0 0 12px', fontSize: 20 }}>
-        Settings
-      </h2>
+    <div className="scroll-container" style={{ padding: '16px 16px 24px' }}>
+      <h2 style={{ margin: '0 0 12px', fontSize: 20 }}>Settings</h2>
       <section style={{ marginBottom: 24 }}>
-        <h3 style={{ fontSize: 16, margin: '12px 0' }}>
-          Backup & Restore
-        </h3>
+        <h3 style={{ fontSize: 16, margin: '12px 0' }}>Backup & Restore</h3>
         <button
           onClick={handleExport}
-          style={{
-            padding: '8px 12px',
-            background: '#3fa9f5',
-            border: 'none',
-            borderRadius: 6,
-            color: '#161616',
-            fontWeight: 600
-          }}
+          style={{ padding: '8px 12px', background: '#3fa9f5', border: 'none', borderRadius: 6, color: '#161616', fontWeight: 600 }}
         >
           Export Data
         </button>
         {exportData && (
           <>
-            <p
-              style={{
-                fontSize: 12,
-                color: '#aaa',
-                marginTop: 8
-              }}
-            >
-              Copy the text below to backup your data:
-            </p>
-            <textarea
-              value={exportData}
-              readOnly
-              rows={4}
-              style={{ width: '100%', marginTop: 4 }}
-            />
+            <p style={{ fontSize: 12, color: '#aaa', marginTop: 8 }}>Copy the text below to backup your data:</p>
+            <textarea value={exportData} readOnly rows={4} style={{ width: '100%', marginTop: 4 }} />
           </>
         )}
         <div style={{ marginTop: 16 }}>
-          <label style={{ fontSize: 13 }}>
-            Import Data (paste backup JSON)
-          </label>
+          <label style={{ fontSize: 13 }}>Import Data (paste backup JSON)</label>
           <textarea
             value={importText}
-            onChange={e =>
-              setImportText(e.target.value)
-            }
+            onChange={e => setImportText(e.target.value)}
             rows={4}
             style={{ width: '100%' }}
           />
-          {importError && (
-            <p style={{ color: '#d90429', fontSize: 12 }}>
-              {importError}
-            </p>
-          )}
+          {importError && <p style={{ color: '#d90429', fontSize: 12 }}>{importError}</p>}
           <button
             onClick={handleImport}
-            style={{
-              marginTop: 8,
-              padding: '8px 12px',
-              background: '#3fa9f5',
-              border: 'none',
-              borderRadius: 6,
-              color: '#161616',
-              fontWeight: 600
-            }}
+            style={{ marginTop: 8, padding: '8px 12px', background: '#3fa9f5', border: 'none', borderRadius: 6, color: '#161616', fontWeight: 600 }}
           >
             Import Data
           </button>
         </div>
       </section>
       <section>
-        <h3 style={{ fontSize: 16, margin: '12px 0' }}>
-          Disclaimer
-        </h3>
-        <p
-          style={{
-            fontSize: 12,
-            color: '#f5c518'
-          }}
-        >
-          This application is for educational research
-          tracking only. It does not provide medical
-          advice, diagnosis, treatment or dosing
-          recommendations. Consult a licensed medical
-          professional for health decisions.
+        <h3 style={{ fontSize: 16, margin: '12px 0' }}>Disclaimer</h3>
+        <p style={{ fontSize: 12, color: '#f5c518' }}>
+          This application is for educational research tracking only. It does not provide medical advice, diagnosis,
+          treatment or dosing recommendations. Consult a licensed medical professional for health decisions.
         </p>
       </section>
     </div>
@@ -1578,9 +1531,7 @@ export default function App() {
   const [peptides] = useState(PEPTIDES_DATA);
   const [favourites, setFavourites] = useState(() => {
     try {
-      return (
-        JSON.parse(localStorage.getItem('peptideFavourites')) || []
-      );
+      return JSON.parse(localStorage.getItem('peptideFavourites')) || [];
     } catch {
       return [];
     }
@@ -1594,65 +1545,46 @@ export default function App() {
   });
   const [inventory, setInventory] = useState(() => {
     try {
-      return (
-        JSON.parse(localStorage.getItem('peptideInventory')) ||
-        []
-      );
+      return JSON.parse(localStorage.getItem('peptideInventory')) || [];
     } catch {
       return [];
     }
   });
-  const [selectedPeptide, setSelectedPeptide] =
-    useState(null);
+  const [selectedPeptide, setSelectedPeptide] = useState(null);
 
   // Persist state to localStorage when changed
   useEffect(() => {
     try {
-      localStorage.setItem(
-        'peptideFavourites',
-        JSON.stringify(favourites)
-      );
+      localStorage.setItem('peptideFavourites', JSON.stringify(favourites));
     } catch {
       /* ignore */
     }
   }, [favourites]);
   useEffect(() => {
     try {
-      localStorage.setItem(
-        'peptideLogs',
-        JSON.stringify(logs)
-      );
+      localStorage.setItem('peptideLogs', JSON.stringify(logs));
     } catch {
       /* ignore */
     }
   }, [logs]);
   useEffect(() => {
     try {
-      localStorage.setItem(
-        'peptideInventory',
-        JSON.stringify(inventory)
-      );
+      localStorage.setItem('peptideInventory', JSON.stringify(inventory));
     } catch {
       /* ignore */
     }
   }, [inventory]);
 
   // Swipe handling for tab navigation
-  const touchStartRef = useRef({
-    x: 0,
-    y: 0,
-    active: false
-  });
+  const touchStartRef = useRef({ x: 0, y: 0, active: false });
 
   const goToTab = useCallback(
     direction => {
       const index = TABS.findIndex(t => t.id === tab);
       if (index === -1) return;
       let nextIndex = index;
-      if (direction === 'left')
-        nextIndex = Math.min(index + 1, TABS.length - 1);
-      else if (direction === 'right')
-        nextIndex = Math.max(index - 1, 0);
+      if (direction === 'left') nextIndex = Math.min(index + 1, TABS.length - 1);
+      else if (direction === 'right') nextIndex = Math.max(index - 1, 0);
       if (nextIndex !== index) {
         setTab(TABS[nextIndex].id);
       }
@@ -1664,11 +1596,7 @@ export default function App() {
     if (e.touches.length !== 1) return;
     if (isInteractiveTarget(e.target)) return;
     const touch = e.touches[0];
-    touchStartRef.current = {
-      x: touch.clientX,
-      y: touch.clientY,
-      active: true
-    };
+    touchStartRef.current = { x: touch.clientX, y: touch.clientY, active: true };
   }, []);
 
   const handleTouchEnd = useCallback(
@@ -1681,11 +1609,7 @@ export default function App() {
       touchStartRef.current.active = false;
       const minSwipe = 50;
       const maxVertical = 45;
-      if (
-        Math.abs(dx) < minSwipe ||
-        Math.abs(dy) > maxVertical
-      )
-        return;
+      if (Math.abs(dx) < minSwipe || Math.abs(dy) > maxVertical) return;
       if (dx < 0) goToTab('left');
       else goToTab('right');
     },
@@ -1722,12 +1646,7 @@ export default function App() {
       case 'log':
         return <LogScreen logs={logs} setLogs={setLogs} />;
       case 'inventory':
-        return (
-          <InventoryScreen
-            inventory={inventory}
-            setInventory={setInventory}
-          />
-        );
+        return <InventoryScreen inventory={inventory} setInventory={setInventory} />;
       case 'settings':
         return (
           <SettingsScreen
@@ -1740,16 +1659,7 @@ export default function App() {
           />
         );
       default:
-        return (
-          <DashboardScreen
-            favourites={favourites}
-            peptides={peptides}
-            logs={logs}
-            inventory={inventory}
-            setTab={setTab}
-            setSelectedPeptide={setSelectedPeptide}
-          />
-        );
+        return <DashboardScreen favourites={favourites} peptides={peptides} logs={logs} inventory={inventory} setTab={setTab} setSelectedPeptide={setSelectedPeptide} />;
     }
   };
 
@@ -1768,11 +1678,7 @@ export default function App() {
       }}
     >
       {/* Top navigation */}
-      <TopNav
-        tab={tab}
-        setTab={setTab}
-        favourites={favourites}
-      />
+      <TopNav tab={tab} setTab={setTab} favourites={favourites} />
 
       {/* Main content area with swipe detection */}
       <div
@@ -1785,4 +1691,4 @@ export default function App() {
       </div>
     </div>
   );
-}
+}```
