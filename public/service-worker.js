@@ -2,7 +2,11 @@
 // cached responses when offline. When updated, it clears old caches.
 
 const CACHE_NAME = 'peptide-tracker-cache-v1';
-const PRECACHE = ['/', '/index.html', '/manifest.json'];
+const PRECACHE = [
+  '/',
+  '/index.html',
+  '/manifest.json'
+];
 
 self.addEventListener('install', event => {
   event.waitUntil(
@@ -12,15 +16,11 @@ self.addEventListener('install', event => {
 
 self.addEventListener('activate', event => {
   event.waitUntil(
-    caches.keys().then(keys =>
-      Promise.all(
-        keys.map(key => {
-          if (key !== CACHE_NAME) {
-            return caches.delete(key);
-          }
-        })
-      )
-    )
+    caches.keys().then(keys => Promise.all(keys.map(key => {
+      if (key !== CACHE_NAME) {
+        return caches.delete(key);
+      }
+    })))
   );
 });
 
