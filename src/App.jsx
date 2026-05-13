@@ -328,7 +328,7 @@ const PEPTIDES_DATA = [
     cautionLevel: 'High',
     references: []
   }
-  }
+  
 ];
 
 // Definition of top navigation tabs
